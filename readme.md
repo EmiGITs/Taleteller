@@ -1,4 +1,3 @@
-![](media/image1.png){width="4.427083333333333in" height="3.71875in"}
 
 Skill Alexa
 
@@ -15,37 +14,36 @@ se encuentra alojado en
 siendo ttbetabucket el nombre del bucket S3 y Cuento1.txt el archivo de
 texto que contiene la información
 
-![](media/image2.png)
+
 
 El Intent StoryIntentHandler que es llamado por el JSON del Alexa con el
 término "tale" llamara a la función \_getText que recibe el texto y lo
 almacena en speechText para usarlo
 
-![](media/image3.png)
 
-![](media/image4.png)
+
+
 
 El contenido del archivo de texto es "This is a test text uploaded from
 amazon s3" y es mostrado por Alexa una vez que se llama el intent
 correspondiente.
 
-![](media/image5.png)
 
-![](media/image6.png)
 
-DynamoDB + Lambda [ ]{.underline} NODE.JS
+
+DynamoDB + Lambda NODE.JS
 
 En la función lambda se incluye un .js llamado GetDynamo que ejecuta una
 simple función GetItem utilizando el AwsSDK+DynamoDB, la estructura de
 la base de datos es la siguiente:
 
-![](media/image7.png)
+
 
 Siendo storiesDB el nombre de la tabla y storyID La Primary Key
 
 Al hacer el get se obtiene la confirmación de que existe un storyID (Que
 es una clave única) con el valor 100, además nos proporciona el valor
-del string name![](media/image8.png)
+del string name
 
 El nombre de la tabla que se va a llamar tiene que ser editado en las
 variables de entorno globales, además se debe proporcionar acceso al
