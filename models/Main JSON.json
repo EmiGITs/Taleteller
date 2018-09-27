@@ -1,0 +1,29 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "taleteller",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "StoryIntent",
+                    "slots": [],
+                    "samples": [
+                        "tale"
+                    ]
+                }
+            ],
+            "types": []
+        }
+    }
+}
