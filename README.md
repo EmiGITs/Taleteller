@@ -1,2 +1,0 @@
-# Taleteller
-Alexa Skill (Proyecto)
