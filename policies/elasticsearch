@@ -1,0 +1,13 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::362487165495:role/aws-serverless-repository-alexaskillskitnodejsfact-OQO93Z92460P"
+      },
+      "Action": "es:ESHttpGet",
+      "Resource": "arn:aws:es:us-east-1:362487165495:domain/tttnewdynamodbsearch/*"
+    }
+  ]
+}
