@@ -1,0 +1,59 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "taletellernew",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "StoryIntent",
+                    "slots": [],
+                    "samples": [
+                        "Random Tale",
+                        "Random",
+                        "tell me a tale"
+                    ]
+                },
+                {
+                    "name": "ChooseIntent",
+                    "slots": [
+                        {
+                            "name": "StoryOption",
+                            "type": "AMAZON.NUMBER"
+                        }
+                    ],
+                    "samples": [
+                        "tale {StoryOption}",
+                        "{StoryOption}",
+                        "option {StoryOption}",
+                        "i want option {StoryOption}"
+                    ]
+                },
+                {
+                    "name": "SpecificIntent",
+                    "slots": [
+                        {
+                            "name": "specific",
+                            "type": "AMAZON.Book"
+                        }
+                    ],
+                    "samples": [
+                        "{specific}",
+                        "Search {specific}"
+                    ]
+                }
+            ],
+            "types": []
+        }
+    }
+}
