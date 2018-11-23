@@ -1,4 +1,4 @@
-      /* eslint-disable  func-names */
+  /* eslint-disable  func-names */
 /* eslint-disable  no-console */
 var speechText='Text Failed to download, please retry'; //Variable que almacena el texto sin modificar
 var name='Name failed to download, please retry'; //Variable que obtiene el nombre del cuento sin modificar
@@ -8,21 +8,24 @@ var KeyValue=100;
 var repeater = []; //array para almacenar los id
 
 //PRUEBA GIT
+
 var AWS = require('aws-sdk'),
     mydocumentClient = new AWS.DynamoDB.DocumentClient();
+    AWS.config.region = 'us-east-1';
+var lambda = new AWS.Lambda();
 const Alexa = require('ask-sdk-core');
 const LaunchRequestHandler = {
   canHandle(handlerInput) {
     return handlerInput.requestEnvelope.request.type === 'LaunchRequest';
   },
   handle(handlerInput) {
-    const speechText = 'Welcome to Tale Teller Beta application, specify which tale you want me to read';
+    const speechText = 'TALETELLER TEST ENVIROMENT 2';
 
     return handlerInput.responseBuilder
 
       .speak(speechText)
       .reprompt(speechText)
-      .withSimpleCard('This is a story', speechText)
+      .withSimpleCard('Welcome to taleteller', speechText)
       .getResponse();
       
       
@@ -39,6 +42,65 @@ function getSlotValues(filledSlots) {
     }, this); 
     return slotValues; 
 } 
+
+
+const SpecificIntentHandler = {
+
+  canHandle(handlerInput) {
+    return handlerInput.requestEnvelope.request.type === 'IntentRequest'
+      && handlerInput.requestEnvelope.request.intent.name === 'SpecificIntent';
+      
+  },
+  
+  async handle(handlerInput,event, context, callback) {   //ESTA FUNCION SE TRANSFORMO EN ASYNC
+      const request = handlerInput.requestEnvelope.request;
+      let slotValues = getSlotValues(request.intent.slots); 
+      var index = slotValues.specific.heardAs;
+      var Result = await InvokeLambda(event,context,callback,index);
+      if (Result==0){
+        speechText="I couldn't find that tale, please specify another one or let me find one for you";
+        return handlerInput.responseBuilder
+        
+         .speak(speechText)
+         .reprompt(speechText)
+         .withSimpleCard(index+' not found', speechText)
+         .getResponse();
+      }
+      else{
+        Result = Result.replace(/^"(.*)"$/, '$1');
+        Link='https://'+Result;
+        
+        var speechText= await _getSpecificText(event, context, callback,Link);
+        return handlerInput.responseBuilder
+        
+         .speak(speechText)
+         .withSimpleCard(index, speechText)
+         .getResponse();
+      }
+  },
+};
+
+async function InvokeLambda(event,context,callback,index){
+   return new Promise(resolve => {
+    setTimeout(() => {
+  var params = {
+    FunctionName: 'helpme', // the lambda function we are going to invoke
+    InvocationType: 'RequestResponse',
+    LogType: 'Tail',
+    Payload: '{ "query" : "'+index+'"} '
+  };
+
+  lambda.invoke(params, function(err, data) {
+    if (err) {
+      context.fail(err);
+    } else {
+      resolve(data.Payload);
+    }
+  })
+    }, 0); //Modificar este valor aumenta el timeout
+  });
+}
+
 
 const StoryIntentHandler = {
 
@@ -62,7 +124,7 @@ const StoryIntentHandler = {
      
       .speak(speechText)
       .reprompt(speechText)
-      .withSimpleCard('This is a story', speechText)
+      .withSimpleCard('Specify one from 1 to 5', speechText)
       .getResponse();
   },
 };
@@ -153,8 +215,30 @@ const SessionEndedRequestHandler = {
   },
 };
 
+async function _getSpecificText(event, context, callback,Link) { //Función Async que busca el texto del S3 y devuelve el promise resolve
+   return new Promise(resolve => {
+    setTimeout(() => {
+     const https = require("https");
+        const url = Link; //Usa el Link recibido de la función _getLink
+        https.get(url, res => {
+          res.setEncoding("utf8");
+          let body = "";
+          res.on("data", data => {
+            body += data;
+          });
+          res.on("end", () => {
+            resolve(body);
+          });
+        });
+    }, 0); //Modificar este valor aumenta el timeout
+  });
+  
+}
+
+
+
 async function _getText(event, context, callback) { //Función Async que busca el texto del S3 y devuelve el promise resolve
-  var Link = await _getLink(event,context,callback); //El resultado del Result en _getLink se almacena en Link
+  var Link = 'https://'+await _getLink(event,context,callback); //El resultado del Result en _getLink se almacena en Link
    return new Promise(resolve => {
     setTimeout(() => {
      const https = require("https");
@@ -246,6 +330,7 @@ exports.handler = skillBuilder
 
   .addRequestHandlers(
     LaunchRequestHandler,
+    SpecificIntentHandler,
     StoryIntentHandler,
     ChooseIntentHandler,
     HelpIntentHandler,
