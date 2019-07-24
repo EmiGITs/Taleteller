@@ -28,3 +28,9 @@ Estructura storyDB:
 -storyID(Primary Key-Int)-genreID(Int que va del 1-4)-storyLink(String)-storyName(String)
     
     -X                  -1-4 (Puede ser cualquiera) -X(Link del s3)    -Nombre del cuento
+    
+
+Nota: Este proyecto esta planificado para utilizar archivos XML generados por el siguiente software:
+
+
+https://github.com/Gumerianoo/Textos-Alexa
