@@ -8,7 +8,7 @@
   <option name="TEXTO-A-A-A">
        <textocorto>Juntar la antorcha</textocorto>
        <stag>Continue</stag>
-       <textolargo>Avanzas con la antorcha en mano hasta llegar a una pared... no soy tan creativo</textolargo>
+       <textolargo>Avanzas con la antorcha en mano hasta llegar a una pared...</textolargo>
        <option name="TEXTO-A-A-A-A">
             <textocorto>Arañar la pared</textocorto>
              <stag>End</stag>
