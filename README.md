@@ -1,2 +1,6 @@
-# Taleteller Version 3
-Alexa Skill (Proyecto)
+# Taleteller
+
+Proyecto de investigación para Seminario de Tecnologia I-II Universidad Caece
+
+Alumnos: Dri Emiliano-Rodriguez Facundo
+
