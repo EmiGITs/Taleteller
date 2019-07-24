@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TEXTOA>
+<textolargo>Entras en una sala vacia, hay una puerta, ¿Que deseas hacer?: </textolargo>
+<option name="TEXTOA-A">
+  <textocorto>Abrir puerta</textocorto>
+  <stag>Continue</stag>
+  <textolargo>Entras en una sala, hay una antorcha encendida en la pared</textolargo>
+  <option name="TEXTO-A-A-A">
+       <textocorto>Juntar la antorcha</textocorto>
+       <stag>Continue</stag>
+       <textolargo>Avanzas con la antorcha en mano hasta llegar a una pared... no soy tan creativo</textolargo>
+       <option name="TEXTO-A-A-A-A">
+            <textocorto>Arañar la pared</textocorto>
+             <stag>End</stag>
+             <textolargo>Te lastimaste las uñas</textolargo>
+       </option>
+       <option name="TEXTO-A-A-A-B">
+            <textocorto>Sentarse</textocorto>
+             <stag>End</stag>
+             <textolargo>Que aburrido, fin de la historia</textolargo>
+       </option>
+  </option>
+  <option name="TEXTO-A-A-B">
+     <textocorto>Volver</textocorto>
+     <stag>End</stag>
+     <textolargo>Te fuiste, fin</textolargo>
+  </option>
+</option>
+<option name="TEXTOA-B">
+  <textocorto>Irse</textocorto>
+  <stag>End</stag>
+  <textolargo>Que corta historia, te fuiste de la cueva</textolargo>
+</option>
+</TEXTOA>
