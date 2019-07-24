@@ -4,6 +4,10 @@
             "invocationName": "taleteller",
             "intents": [
                 {
+                    "name": "AMAZON.FallbackIntent",
+                    "samples": []
+                },
+                {
                     "name": "AMAZON.CancelIntent",
                     "samples": []
                 },
@@ -16,12 +20,8 @@
                     "samples": []
                 },
                 {
-                    "name": "StoryIntent",
-                    "slots": [],
-                    "samples": [
-                        "tell me a tale",
-                        "tale"
-                    ]
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
                 },
                 {
                     "name": "ChooseIntent",
@@ -32,14 +32,101 @@
                         }
                     ],
                     "samples": [
-                        "tale {StoryOption}",
-                        "{StoryOption}",
-                        "option {StoryOption}",
-                        "i want option {StoryOption}"
+                        "i want option {StoryOption}",
+                        "i want {StoryOption}",
+                        "option {StoryOption}"
+                    ]
+                },
+                {
+                    "name": "StoryIntent",
+                    "slots": [],
+                    "samples": [
+                        "search random stories",
+                        "random stories",
+                        "stories",
+                        "any tale",
+                        "i want to search random tales",
+                        "search random tales",
+                        "random",
+                        "tell me a tale",
+                        "tale"
+                    ]
+                },
+                {
+                    "name": "GenreIntent",
+                    "slots": [],
+                    "samples": [
+                        "tell me which genres do you have",
+                        "list genres",
+                        "available genres",
+                        "Which genres do you have",
+                        "genres",
+                        "show me all genres"
+                    ]
+                },
+                {
+                    "name": "ChooseGenreIntent",
+                    "slots": [
+                        {
+                            "name": "StoryGenre",
+                            "type": "Genre"
+                        }
+                    ],
+                    "samples": [
+                        "genre {StoryGenre}",
+                        "{StoryGenre} genre",
+                        "show me {StoryGenre} stories",
+                        "{StoryGenre} stories",
+                        "{StoryGenre}"
+                    ]
+                },
+                {
+                    "name": "SpecificIntent",
+                    "slots": [
+                        {
+                            "name": "Query",
+                            "type": "AMAZON.SearchQuery"
+                        }
+                    ],
+                    "samples": [
+                        "Search {Query}"
                     ]
                 }
             ],
-            "types": []
+            "types": [
+                {
+                    "name": "Genre",
+                    "values": [
+                        {
+                            "id": "1",
+                            "name": {
+                                "value": "Love",
+                                "synonyms": [
+                                    "love"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "2",
+                            "name": {
+                                "value": "Comedy",
+                                "synonyms": [
+                                    "comedy"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "3",
+                            "name": {
+                                "value": "Terror",
+                                "synonyms": [
+                                    "terror"
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
         }
     }
 }
