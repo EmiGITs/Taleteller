@@ -10,13 +10,13 @@ La base de datos tiene la siguiente estructura:
 
 2 Tablas: genreTable y storyDB
 
-Estructura genreTable:
-  4 Elementos de 2 variables:
-        genreID(Primary Key-Int)-genreName(String)
-        1                         Love
-        2                         Comedy
-        3                         Terror
-        4                         Drama
+-Estructura genreTable:
+  -4 Elementos de 2 variables:
+        -genreID(Primary Key-Int)-genreName(String)
+        -1                         Love
+        -2                         Comedy
+        -3                         Terror
+        -4                         Drama
         
 Estructura storyDB:
 
