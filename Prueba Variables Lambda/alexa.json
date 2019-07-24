@@ -1,0 +1,206 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "bookread",
+            "intents": [
+                {
+                    "name": "AMAZON.FallbackIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "ChooseIntent",
+                    "slots": [
+                        {
+                            "name": "StoryOption",
+                            "type": "AMAZON.NUMBER"
+                        }
+                    ],
+                    "samples": [
+                        "i want option {StoryOption}",
+                        "i want {StoryOption}",
+                        "option {StoryOption}"
+                    ]
+                },
+                {
+                    "name": "StoryIntent",
+                    "slots": [],
+                    "samples": [
+                        "search random stories",
+                        "random stories",
+                        "stories",
+                        "any tale",
+                        "i want to search random tales",
+                        "search random tales",
+                        "random",
+                        "tell me a tale",
+                        "tale"
+                    ]
+                },
+                {
+                    "name": "GenreIntent",
+                    "slots": [],
+                    "samples": [
+                        "tell me which genres do you have",
+                        "list genres",
+                        "available genres",
+                        "Which genres do you have",
+                        "genres",
+                        "show me all genres"
+                    ]
+                },
+                {
+                    "name": "ChooseGenreIntent",
+                    "slots": [
+                        {
+                            "name": "StoryGenre",
+                            "type": "Genre"
+                        }
+                    ],
+                    "samples": [
+                        "genre {StoryGenre}",
+                        "{StoryGenre} genre",
+                        "show me {StoryGenre} stories",
+                        "{StoryGenre} stories",
+                        "{StoryGenre}"
+                    ]
+                },
+                {
+                    "name": "RememberStoryIntent",
+                    "slots": [
+                        {
+                            "name": "story",
+                            "type": "AMAZON.Comic"
+                        }
+                    ],
+                    "samples": [
+                        "Remember {story}"
+                    ]
+                },
+                {
+                    "name": "SayRememberedStoryIntent",
+                    "slots": [],
+                    "samples": [
+                        "say",
+                        "What did i say"
+                    ]
+                }
+            ],
+            "types": [
+                {
+                    "name": "Genre",
+                    "values": [
+                        {
+                            "id": "1",
+                            "name": {
+                                "value": "Love",
+                                "synonyms": [
+                                    "love"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "2",
+                            "name": {
+                                "value": "Comedy",
+                                "synonyms": [
+                                    "comedy"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "3",
+                            "name": {
+                                "value": "Terror",
+                                "synonyms": [
+                                    "terror"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "AMAZON.Comic",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "avengers",
+                                "synonyms": [
+                                    "the avengers"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "ant man"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "thor"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "captain america"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "green lantern"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "xmen",
+                                "synonyms": [
+                                    "x men"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "wonder woman"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "superman"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "deadpool"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "batman"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "spiderman"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}
