@@ -26,4 +26,4 @@ Estructura storyDB:
   21 elementos de 4 variables:
     storyID(Primary Key-Int)-genreID(Int que va del 1-4)-storyLink(String)-storyName(String)
     
-    X                         1-4 (Puede ser cualquiera) X(Link del s3)     Nombre del cuento
+    -X                         -1-4 (Puede ser cualquiera) -X(Link del s3)    -Nombre del cuento
